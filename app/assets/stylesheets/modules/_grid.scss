@@ -1,0 +1,14 @@
+@import "susy";
+
+$susy: (
+  columns: 4,
+  container: 1140px,
+  gutters: 1/10,
+  gutter-position: inside,
+  math: fluid,
+  output: float
+);
+
+@mixin grid($length){
+	@include span($length of 4);
+}

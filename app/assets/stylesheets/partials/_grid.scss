@@ -1,0 +1,39 @@
+// Grid/susy
+@import "modules/_grid";
+@import "modules/_utilities";
+
+main, section{
+  @include container;
+}
+
+.col-1{
+	@include grid(1);
+}
+
+.col-2{
+	@include grid(2);
+}
+
+.col-3{
+	@include grid(3);
+}
+
+.col-4{
+	@include grid(4);
+}
+
+@include at-query($max, $tablet) {
+	.col-1{
+		@include grid(2);
+	}
+
+	.col-2, .col-3, .col-4{
+		@include grid(4);
+	}
+}
+
+@include at-query($max, $tablet) {
+	.col-1, .col-2, .col-3, .col-4{
+		@include grid(4);
+	}
+}

@@ -1,0 +1,11 @@
+$mobile: 480px;
+$tablet: 979px;
+
+$min: min-width;
+$max: max-width;
+
+@mixin at-query ($constraint, $viewport1) {
+	@media screen and ($constraint: $viewport1) {
+		@content;
+	}
+}

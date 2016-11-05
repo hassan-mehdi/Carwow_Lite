@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+(function($){
+	$('p').each(function(){
+		console.log('yup, jquery');
+	});
+})(jQuery);
