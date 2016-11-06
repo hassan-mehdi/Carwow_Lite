@@ -13,3 +13,36 @@
  *= require_directory .
  *= require_self
  */
+
+ // Modules and Variables
+@import "modules/_all";
+
+// Partials
+@import "partials/_typography";
+@import "partials/_buttons";
+@import "partials/_grid";
+
+* {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+	color: $colourText;
+}
+
+header{
+	background: $cwBlue;
+	padding: $gutter*1.6 0
+}
+
+.logo{
+	max-width: 200px;
+}
+
+img{
+	max-width: 100%;
+}

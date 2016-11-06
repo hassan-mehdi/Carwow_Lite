@@ -1,14 +1,140 @@
-.col-4
-  %h1 Showroom
+%section.section__header
+  .grid
+    .grid__col-4
+      %h1 Your Showroom
 
-%section
-  .col-1 Volkswagen,Golf,1.0 MPI 60 S Manual,Manual,Petrol
-  .col-1 Mercedes,C-Class Cabriolet,1.6 TDI CR 110 DSG S,Automatic,Diesel
-  .col-1 Toyota,Avensis,2.0 SE,Manual,Petrol
-  .col-1 Volvo,V40,1.5 Nav SE-L,Automatic,Diesel
+%section.grid.cards
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Volkswagen
+          %h2 Golf
+        %img{:src => asset_path("volkswagen-golf.jpg")}
+      .card__bottom 
+        %h3 1.0 MPI 60 S Manual
+        %p Manual, Petrol
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Mercedes 
+          %h2 C-Class Cabriolet
+        %img{:src => asset_path("mercedes-c-class.jpg")}
+      .card__bottom 
+        %h3 1.6 TDI CR 110 DSG S
+        %p Automatic, Diesel
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel
 
-%section
-  .col-1 Land Rover,Discovery,3.0 SDV6 Auto Graphite,Manual,Petrol
-  .col-1 Jaguar,F-Pace,2.0d Prestige,Automatic,Diesel
-  .col-1 Dacia,Duster,1.6 SCE 115 Access,Manual,Petrol
-  .col-1 Mercedes,SL,SL 500 9G-Tronic AMG Line,Automatic,Diesel
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Toyota 
+          %h2 Avensis
+        %img{:src => asset_path("mercedes-sl.jpg")}
+      .card__bottom 
+        %h3 2.0 SE
+        %p Manual, Petrol
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel
+
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Volvo 
+          %h2 V40
+        %img{:src => asset_path("volvo-v40.jpg")}
+      .card__bottom 
+        %h3 1.5 Nav SE-L
+        %p Automatic, Diesel
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel
+
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Land Rover 
+          %h2 Discovery
+        %img{:src => asset_path("land-rover-discovery.jpg")}
+      .card__bottom 
+        %h3 3.0 SDV6 Auto Graphite
+        %p Manual, Petrol
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel
+
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Jaguar 
+          %h2 F-Pace
+        %img{:src => asset_path("jaguar-f-pace.jpg")}
+      .card__bottom 
+        %h3 2.0d Prestige
+        %p Automatic, Diesel
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel
+
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Dacia 
+          %h2 Duster
+        %img{:src => asset_path("dacia-duster.jpg")}
+      .card__bottom 
+        %h3 1.6 SCE 115 Access
+        %p Manual, Petrol
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel
+
+  %article.grid__col-1.card
+    .card__front
+      .card__top
+        %a.card__delete{ href: "#", title: "Delete" }
+          %img{:src => asset_path("archive_icon.svg")}
+        .card__title
+          %h3 Mercedes 
+          %h2 SL
+        %img{:src => asset_path("mercedes-sl.jpg")}
+      .card__bottom 
+        %h3 SL 500 9G-Tronic AMG Line
+        %p Automatic, Diesel
+    .card__back
+      %h3 Are you sure you want to delete?
+      %a.button.button--delete-confirm{ href: "#", title: "Confirm Delete" } Delete
+      %a.button.button--delete-cancel{ href: "#", title: "Confirm Delete" } Cancel

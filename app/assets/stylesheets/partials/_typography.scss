@@ -1,2 +1,66 @@
-// Modules and Variables
-@import "modules/_all";
+$browser-context: 14; // Default
+
+@font-face {
+    font-family: 'proxima_nova_bold';
+    src: asset-url('proxima_nova_bold-webfont.eot');
+    src: asset-url('proxima_nova_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('proxima_nova_bold-webfont.woff2') format('woff2'),
+         asset-url('proxima_nova_bold-webfont.woff') format('woff'),
+         asset-url('proxima_nova_bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'proxima_nova_regular';
+    src: asset-url('proxima_nova_regular-webfont.eot');
+    src: asset-url('proxima_nova_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         asset-url('proxima_nova_regular-webfont.woff2') format('woff2'),
+         asset-url('proxima_nova_regular-webfont.woff') format('woff'),
+         asset-url('proxima_nova_regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+body {
+    font-family: 'proxima_nova_regular',Helvetica,Arial,sans-serif;
+    font-size: $browser-context+px;
+    line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'proxima_nova_bold',Helvetica,Arial,sans-serif;
+    margin: 0;
+}
+
+h1{
+    font-size: em(40);
+}
+
+h2{
+    font-size: em(28);
+}
+
+h3{
+    font-size: em(18);
+}
+
+h4{
+    font-size: em(16);
+}
+
+h5{
+    font-size: em(14);
+}
+
+h6{
+    font-size: em(14);
+}
+
+p{
+    margin: 0;
+}

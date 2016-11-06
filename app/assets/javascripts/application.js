@@ -12,11 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require isotope
 //= require_tree .
-
-
-(function($){
-	$('p').each(function(){
-		console.log('yup, jquery');
-	});
-})(jQuery);

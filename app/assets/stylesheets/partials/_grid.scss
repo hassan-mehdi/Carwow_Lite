@@ -2,38 +2,38 @@
 @import "modules/_grid";
 @import "modules/_utilities";
 
-main, section{
+.grid{
   @include container;
 }
 
-.col-1{
+.grid__col-1{
 	@include grid(1);
 }
 
-.col-2{
+.grid__col-2{
 	@include grid(2);
 }
 
-.col-3{
+.grid__col-3{
 	@include grid(3);
 }
 
-.col-4{
+.grid__col-4{
 	@include grid(4);
 }
 
 @include at-query($max, $tablet) {
-	.col-1{
-		@include grid(2);
+	[class^="grid__col-"] {
+		@include grid(4);
 	}
 
-	.col-2, .col-3, .col-4{
-		@include grid(4);
+	.grid__col-1{
+		@include grid(2);
 	}
 }
 
-@include at-query($max, $tablet) {
-	.col-1, .col-2, .col-3, .col-4{
+@include at-query($max, $mobile) {
+	[class^="grid__col-"]{
 		@include grid(4);
 	}
 }

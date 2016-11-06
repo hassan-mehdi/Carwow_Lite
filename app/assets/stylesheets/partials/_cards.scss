@@ -1,2 +1,93 @@
 // Modules and Variables
 @import "modules/_all";
+.cards{
+	perspective: 800px;
+}
+
+.card{
+	border: 1px solid $colourBorder;
+	margin-bottom: $gutter * 3;
+	cursor: pointer;
+	border-radius: 6px;
+	position: relative;
+	@include transition(opacity 0.5s cubic-bezier(.39,1.02,.84,.13), width 0.35s cubic-bezier(.04,.96,.16,.31));
+
+	.card__front, .card__back{
+		@include transition(transform 0.45s cubic-bezier(1,.15,.28,1.22));
+	}
+
+	.card__front{
+		backface-visibility: hidden;
+		background: $white;
+		position: relative;
+		z-index: 1;
+	}
+
+	.card__back{
+		transform: rotateY( 180deg );
+		background: $cwGrey;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+
+	.card__delete{
+		position: absolute;
+		z-index: 1;
+		top: $gutter/2;
+		right: $gutter/2;
+		width: $gutter*2;
+		height: $gutter*2;
+	}
+
+	.card__top{
+		position: relative;
+		overflow: hidden;
+		height: 170px;
+		color: $white;
+		background: linear-gradient(124deg, #0a0b0c, rgba(10, 11, 12, 0));
+		display: flex;
+		align-items: center;
+		justify-content: left;
+
+		.card__title{
+			position: relative;
+			z-index: 0;
+		}
+
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: -1;
+		}
+	}
+
+	.card__top, .card__bottom{
+		padding: $gutter;
+	}
+
+	&.card--hide{
+		opacity: 0;
+	}
+
+	&.card--flipped{
+		.card__front{
+			transform: rotateY( -180deg );
+		}
+
+		.card__back{
+			transform: rotateY( -0deg );
+		}
+	}
+
+	&.card--is-flipped{
+		.card__front{
+			z-index: 0;
+		}
+	}
+}

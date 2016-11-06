@@ -20,7 +20,7 @@
   / %script{:src => "/javascripts/modernizr-1.5.min.js"}
 
   %body
+    = render "shared/header"
     %main
-      = render "shared/header"
       = yield
-      = javascript_include_tag 'application'
+    = javascript_include_tag 'application'
