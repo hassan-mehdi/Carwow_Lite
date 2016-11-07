@@ -9,7 +9,7 @@
          asset-url('proxima_nova_bold-webfont.woff2') format('woff2'),
          asset-url('proxima_nova_bold-webfont.woff') format('woff'),
          asset-url('proxima_nova_bold-webfont.svg#proxima_nova_rgbold') format('svg');
-    font-weight: bold;
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -36,6 +36,7 @@ h3, .h3,
 h4, .h4, 
 h5, .h5{
     font-family: $headerFont;
+    font-weight: normal;
     margin: 0;
 }
 

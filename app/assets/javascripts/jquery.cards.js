@@ -44,8 +44,6 @@
 
 			var $thisCard = $(this).closest(card);
 			
-			$('.alert').html('Awesome! That&#39;s done now.');
-
 			$thisCard.addClass('card--hide');
 
 			setTimeout(function(){
@@ -55,6 +53,8 @@
 					$thisCard.remove();
 				}
 			}, 1000);
+
+			$('.alert').addClass('alert--success').html('Awesome! That&#39;s done now.');
 
 			setTimeout(function(){
 				$('.alert').addClass('alert--show');
@@ -71,10 +71,11 @@
 			var $thisCard = $(this).closest(card)
 			    $thisCardFront = $thisCard.find('.card__front');
 			
-			$thisCard.find('.card__delete').toggleClass('card__delete--state-spin');
+			$thisCard.find('.card__delete').toggleClass('card__delete--spin');
 
 			$thisCardFront.removeClass('card--is-front'); 
 
+			// Backface fix for early Android Brswr
 			setTimeout(function(){
 				$thisCard.toggleClass('card--flipped');
 			}, 500);
