@@ -3,10 +3,10 @@
 
 // Partials
 @import "partials/_cards";
+@import "partials/_alerts";
 
 .section__header{
 	background: $cwGrey;
 	text-align: center;
-	padding: $gutter * 5;
-	margin-bottom: $gutter * 4;
+	padding: $gutter * 5 $gutter;
 }

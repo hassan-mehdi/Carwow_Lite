@@ -1,2 +1,46 @@
 // Modules and Variables
 @import "modules/_all";
+
+.button{
+	color: $white;
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	padding: $gutter/2;
+	line-height: 1;
+	text-align: center;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	   -moz-align-items: center;
+	    -ms-align-items: center;
+	        align-items: center;
+  -webkit-align-content: center;
+     -moz-align-content: center;
+      -ms-align-content: center;
+          align-content: center;
+	-webkit-justify-content: center;
+	   -moz-justify-content: center;
+	    -ms-justify-content: center;
+	        justify-content: center;
+
+	.no-flexbox & {
+		display: inline-block;
+
+		img{
+			margin-top: 7px;
+		}
+	}
+
+	&.button--delete-confirm{
+		background: $bgDanger;
+	}
+
+	&.button--delete-cancel{
+		background: $bgSuccess;
+	}
+
+	img{
+		display: inline-block;
+	}
+}

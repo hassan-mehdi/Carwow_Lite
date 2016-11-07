@@ -1,9 +1,13 @@
 (function($){
-	$(document).ready(function(){
-		var $cardGrid = $('.cards');
-		$cardGrid.isotope({
-			itemSelector: '.card',
-			layoutMode: 'fitRows',
+	$(window).load(function(){
+		var $cardGrid = $('.cards')
+		,        card = '.card';
+
+		var packeryOptions = {
+			itemSelector: card,
+			layoutMode: 'layout',
+			percentPosition: true,
+			transitionDuration: '.25s',
 			hiddenStyle: {
 				opacity: 0,
 				transform: 'scale(1)'
@@ -12,23 +16,73 @@
 				opacity: 1,
 				transform: 'scale(1)'
 			}
+		};
+
+		function grid(){
+			setTimeout(function(){
+				$(card).find('img').each(function(){
+					var imgHeight = $(this).height();
+					$(this).parent('.card__top').css('min-height', imgHeight);
+				});
+				if(!$('html').hasClass('ie9') && !$('html').hasClass('ie8') && !$('html').hasClass('ie7') && !$('html').hasClass('ie6') ){
+					$cardGrid.packery(packeryOptions).css('opacity', 1);
+				} else {
+					console.log('No Packery Early IE');
+				}
+			}, 500);
+		}
+
+		grid();
+
+		$(window).on("debouncedresize", function( event ) {
+			$cardGrid.css('opacity', 0.8);
+			grid();
 		});
 
-		$('.button--delete-confirm').on('click', function(){
-			var $thisCard = $(this).closest('.card');
-			$cardGrid.isotope( 'remove', $thisCard ).isotope('layout');;
+		$('.button--delete-confirm').on('click', function(e){
+			e.preventDefault();
+
+			var $thisCard = $(this).closest(card);
+			
+			$('.alert').html('Awesome! That&#39;s done now.');
+
+			$thisCard.addClass('card--hide');
+
+			setTimeout(function(){
+				if(!$('html').hasClass('ie9') && !$('html').hasClass('ie8') && !$('html').hasClass('ie7') && !$('html').hasClass('ie6') ){
+					$cardGrid.packery( 'remove', $thisCard ).packery('layout');
+				} else {
+					$thisCard.remove();
+				}
+			}, 1000);
+
+			setTimeout(function(){
+				$('.alert').addClass('alert--show');
+			}, 1800);
+
+			setTimeout(function(){
+				$('.alert').removeClass('alert--show');
+			}, 4200);
 		});
 
 		$('.card__delete, .button--delete-cancel').on('click', function(e){
 			e.preventDefault();
 			
-			var $thisCard = $(this).closest('.card');
+			var $thisCard = $(this).closest(card)
+			    $thisCardFront = $thisCard.find('.card__front');
+			
+			$thisCard.find('.card__delete').toggleClass('card__delete--state-spin');
 
-			$thisCard.toggleClass('card--flipped');
+			$thisCardFront.removeClass('card--is-front'); 
+
+			setTimeout(function(){
+				$thisCard.toggleClass('card--flipped');
+			}, 500);
 
 			setTimeout(function(){
 				$thisCard.toggleClass('card--is-flipped');
-			}, 300);
+				$thisCardFront.addClass('card--is-front'); 
+			}, 800);
 		});
 	});
 })(jQuery);

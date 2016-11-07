@@ -1,7 +1,10 @@
 // Modules and Variables
 @import "modules/_all";
+
 .cards{
-	perspective: 800px;
+	perspective: 100%;
+	margin-top: $gutter * 4;
+	@include transition(opacity .3s cubic-bezier(.58,.22,.58,.92));
 }
 
 .card{
@@ -10,66 +13,12 @@
 	cursor: pointer;
 	border-radius: 6px;
 	position: relative;
-	@include transition(opacity 0.5s cubic-bezier(.39,1.02,.84,.13), width 0.35s cubic-bezier(.04,.96,.16,.31));
+	@include transition(opacity .5s cubic-bezier(.88,.03,0,.99), width .5s cubic-bezier(.88,.03,0,.99));
 
 	.card__front, .card__back{
-		@include transition(transform 0.45s cubic-bezier(1,.15,.28,1.22));
+		@include transition(transform .5s cubic-bezier(1,.15,.28,1.22));
 	}
 
-	.card__front{
-		backface-visibility: hidden;
-		background: $white;
-		position: relative;
-		z-index: 1;
-	}
-
-	.card__back{
-		transform: rotateY( 180deg );
-		background: $cwGrey;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 0;
-	}
-
-	.card__delete{
-		position: absolute;
-		z-index: 1;
-		top: $gutter/2;
-		right: $gutter/2;
-		width: $gutter*2;
-		height: $gutter*2;
-	}
-
-	.card__top{
-		position: relative;
-		overflow: hidden;
-		height: 170px;
-		color: $white;
-		background: linear-gradient(124deg, #0a0b0c, rgba(10, 11, 12, 0));
-		display: flex;
-		align-items: center;
-		justify-content: left;
-
-		.card__title{
-			position: relative;
-			z-index: 0;
-		}
-
-		img{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: -1;
-		}
-	}
-
-	.card__top, .card__bottom{
-		padding: $gutter;
-	}
 
 	&.card--hide{
 		opacity: 0;
@@ -90,4 +39,154 @@
 			z-index: 0;
 		}
 	}
+}
+
+.card__front{
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	background: $white;
+	position: relative;
+	z-index: 2;
+	float: right;
+	width: 100%;
+
+	&.card--is-front{
+		float: left;
+	}
+}
+
+.card__back{
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	transform: rotateY( 180deg );
+	background: $cwGrey;
+	position: absolute;
+	padding: $gutter;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	display: flex;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	   -moz-align-items: center;
+	    -ms-align-items: center;
+	        align-items: center;
+	-webkit-align-content: center;
+	   -moz-align-content: center;
+	    -ms-align-content: center;
+	        align-content: center;
+	-webkit-justify-content: space-around;
+	   -moz-justify-content: space-around;
+	    -ms-justify-content: space-around;
+	        justify-content: space-around;
+	-webkit-flex-flow: row wrap;
+	   -moz-flex-flow: row wrap;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+
+	.no-flexbox & {
+		text-align: center;
+		padding-top: 25%;
+	}
+
+	h3{
+		width: 100%;
+		margin-bottom: $gutter;
+		text-align: center;
+	}
+}
+
+.card__offer{
+	background: $cwBlue;
+	color: $white;
+	border-radius: 40px;
+	padding: $gutter/5 $gutter/1.5;
+	position: absolute;
+	z-index: 1;
+	top: $gutter/1.2;
+	left: $gutter;
+	line-height: 1;
+}
+
+.card__delete{
+	position: absolute;
+	z-index: 1;
+	top: $gutter/2;
+	right: $gutter/2;
+	width: $gutter*2;
+	height: $gutter*2;
+
+	&:before{
+		content: '';
+		width:26px;
+		height:26px;
+		display:inline-block;
+		float: left;
+		padding:0px;
+		border-radius:100%;
+		border:2px solid #fff;
+	}
+
+	&.card__delete--state-spin{
+		&:before{
+			content: '';
+			border-top-color: #fff;
+			border-bottom-color: #fff;
+			border-left-color:rgba(255,255,255,0.15);
+			border-right-color:rgba(255,255,255,0.15);
+			-webkit-animation: trashSpin 1.1s ease-in-out infinite alternate;
+			animation: trashSpin 1.1s ease-in-out infinite alternate;
+			
+			@keyframes trashSpin {
+			   from {transform: rotate(0deg);}
+			   to {transform: rotate(1080deg);}
+			}
+			@-webkit-keyframes trashSpin {
+			   from {-webkit-transform: rotate(0deg);}
+			   to {-webkit-transform: rotate(1080deg);}
+			}
+		}
+	}
+
+}
+
+.card__top{
+	position: relative;
+	overflow: hidden;
+	height: 1px;
+	color: $white;
+	background: linear-gradient(124deg, #0a0b0c, rgba(10, 11, 12, 0));
+	display: flex;
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	   -moz-align-items: center;
+	    -ms-align-items: center;
+		    align-items: center;
+
+	.no-flexbox & {
+		padding-top: 25%;
+	}
+
+	.card__title{
+		position: relative;
+		z-index: 0;
+	}
+
+	img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: auto;
+		height: auto;
+		z-index: -1;
+	}
+}
+
+.card__top, .card__bottom{
+	padding: $gutter;
 }

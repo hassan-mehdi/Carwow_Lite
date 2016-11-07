@@ -32,15 +32,27 @@ html, body{
 	margin: 0;
 	padding: 0;
 	color: $colourText;
+	overflow-x: hidden;
 }
 
 header{
 	background: $cwBlue;
-	padding: $gutter*1.6 0
+	padding: $gutter*1.6 0;
+
+	@include at-query($max, $mobile) {
+		padding: $gutter 0;
+	}
 }
 
 .logo{
-	max-width: 200px;
+	max-width: 150px;
+	img{
+		max-height: 35px;
+	}
+
+	@include at-query($max, $mobile) {
+		max-width: 120px;
+	}
 }
 
 img{

@@ -4,6 +4,10 @@
 
 .grid{
   @include container;
+
+  @include at-query($max, $tablet) {
+  	max-width: 90%;
+  }
 }
 
 .grid__col-1{

@@ -1,4 +1,6 @@
-$browser-context: 14; // Default
+// Modules and Variables
+@import "modules/_utilities";
+@import "modules/_typography";
 
 @font-face {
     font-family: 'proxima_nova_bold';
@@ -22,45 +24,55 @@ $browser-context: 14; // Default
     font-style: normal;
 }
 
-@function em($pixels, $context: $browser-context) {
-  @return #{$pixels/$context}em;
-}
-
 body {
-    font-family: 'proxima_nova_regular',Helvetica,Arial,sans-serif;
+    font-family: $baseFont;
     font-size: $browser-context+px;
     line-height: 1.2;
 }
 
-h1, h2, h3, h4, h5{
-    font-family: 'proxima_nova_bold',Helvetica,Arial,sans-serif;
+h1, .h1, 
+h2, .h2, 
+h3, .h3, 
+h4, .h4, 
+h5, .h5{
+    font-family: $headerFont;
     margin: 0;
 }
 
-h1{
+h1, .h1{
     font-size: em(40);
+    @include at-query($max, $mobile) {
+        font-size: em(32);
+    }
 }
 
-h2{
+h2, .h2{
     font-size: em(28);
+    @include at-query($max, $mobile) {
+        font-size: em(24);
+    }
 }
 
-h3{
+h3, .h3{
     font-size: em(18);
 }
 
-h4{
+h4, .h4{
     font-size: em(16);
 }
 
-h5{
+h5, .h5{
     font-size: em(14);
 }
 
-h6{
+h6, .h6{
     font-size: em(14);
 }
 
 p{
     margin: 0;
+}
+
+a{
+    text-decoration: none;
 }

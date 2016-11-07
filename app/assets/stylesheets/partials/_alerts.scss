@@ -1,0 +1,28 @@
+// Modules and Variables
+@import "modules/_all";
+
+.alert{
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	text-align: center;
+	background: $bgSuccess;
+	color: $white;
+	text-align: center;
+	padding: 0;
+	margin-bottom: 0;
+	@include transition(all 0.5s ease-in-out);
+
+	&.alert--show{
+		margin-bottom: $gutter * 2;
+		height: 50px;
+		padding: $gutter;
+	}
+
+	@include at-query($max, $tablet) {
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 4;
+	}
+}
